@@ -1,0 +1,52 @@
+# Reference: <https://postmarketos.org/devicepkg>
+pkgname=device-samsung-a72q
+pkgdesc="Samsung Galaxy A72"
+pkgver=0.1
+pkgrel=0
+url="https://postmarketos.org"
+license="MIT"
+arch="aarch64"
+options="!check !archcheck"
+depends="
+	linux-postmarketos-qcom-sm7125
+	mesa-dri-gallium
+	mkbootimg
+	postmarketos-base
+"
+makedepends="devicepkg-dev"
+source="deviceinfo"
+
+subpackages="
+	$pkgname-nonfree-firmware:nonfree_firmware
+"
+
+build() {
+	devicepkg_build $startdir $pkgname
+}
+
+package() {
+	devicepkg_package $startdir $pkgname
+}
+
+nonfree_firmware() {
+	pkgdesc="Firmware for Modem, WiFi, etc."
+	depends="
+		firmware-samsung-a72q-adreno
+		firmware-samsung-a72q-adsp
+		firmware-samsung-a72q-cdsp
+		firmware-samsung-a72q-ipa
+		firmware-samsung-a72q-modem
+		firmware-samsung-a72q-wlan
+		linux-firmware-ath10k
+		msm-modem
+		msm-modem-uim-selection
+		pd-mapper
+		tqftpserv
+		"
+	install="$subpkgname.post-install"
+	mkdir "$subpkgdir"
+}
+
+sha512sums="
+25ba60488ea34e667184a8097cac722c84640343d5d093a13c0b7799be91d733c7f30bedea5d7cb84f1bbb263d8552d191b770df1495f39fe3f319a58c663568  deviceinfo
+"

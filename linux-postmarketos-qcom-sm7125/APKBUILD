@@ -1,0 +1,59 @@
+_flavor="postmarketos-qcom-sm7125"
+pkgname=linux-$_flavor
+pkgver=5.17_rc6
+pkgrel=0
+pkgdesc="Mainline Kernel fork for SM7125 devices"
+arch="aarch64"
+_carch="arm64"
+url="https://github.com/map220v/sm7125-mainline"
+license="GPL-2.0-only"
+options="!strip !check !tracedeps
+	pmb:cross-native
+	pmb:kconfigcheck-nftables
+	"
+makedepends="bison findutils flex installkernel openssl-dev perl"
+
+_repo="sm7125-mainline"
+_config="config-$_flavor.$arch"
+_commit="e3d97a67e7743c04911e19ae6566dcb8c3db6224"
+
+# Source
+source="
+	$_repo-$_commit.tar.gz::https://github.com/map220v/$_repo/archive/$_commit/$_repo-$_commit.tar.gz
+	$_config
+"
+builddir="$srcdir/$_repo-$_commit"
+
+prepare() {
+	default_prepare
+	cp "$srcdir/config-$_flavor.$arch" .config
+}
+
+build() {
+	unset LDFLAGS
+	make ARCH="$_carch" CC="${CC:-gcc}" \
+		KBUILD_BUILD_VERSION="$((pkgrel + 1 ))-$_flavor"
+}
+
+package() {
+	mkdir -p "$pkgdir"/boot
+
+	install -Dm644 "$builddir/arch/$_carch/boot/Image.gz" \
+		"$pkgdir/boot/vmlinuz"
+
+	make modules_install dtbs_install \
+		ARCH="$_carch" \
+		INSTALL_PATH="$pkgdir"/boot/ \
+		INSTALL_MOD_PATH="$pkgdir" \
+		INSTALL_MOD_STRIP=1 \
+		INSTALL_DTBS_PATH="$pkgdir"/usr/share/dtb
+	rm -f "$pkgdir"/lib/modules/*/build "$pkgdir"/lib/modules/*/source
+
+	install -D "$builddir"/include/config/kernel.release \
+		"$pkgdir"/usr/share/kernel/$_flavor/kernel.release
+}
+
+sha512sums="
+13efb772e41f1818362195001384e37f539355ee29a025f3b2cb2a7eed76add7404a3021520f46b204f0b38c422970bd7357764a1ecab3cde9fea7d4995e931c  sm7125-mainline-e3d97a67e7743c04911e19ae6566dcb8c3db6224.tar.gz
+a5652950b3196f790455cc7c20091c1f06d2628f2172884fda181d9f27c4e60b7746ae63450d43d7a8956f80a5dec6e528e8ee88781d37be58cefcd0fd7f5ab4  config-postmarketos-qcom-sm7125.aarch64
+"
