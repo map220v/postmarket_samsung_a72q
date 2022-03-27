@@ -10,12 +10,13 @@ subpackages="
 	$pkgname-modem
 	$pkgname-venus
 	$pkgname-wlan
+	$pkgname-bluetooth
 	"
 url="https://github.com/map220v/a72q-firmware"
 arch="aarch64"
 license="proprietary"
 options="!check !strip !archcheck !tracedeps pmb:cross-native"
-_commit="e9987c2ef670715ca5144fe20e413e0f1a67c6fb"
+_commit="e4d3baff25a33ccd66d30303ad7545cd35710e81"
 source="https://github.com/map220v/a72q-firmware/archive/$_commit/a72q-firmware-$_commit.tar.gz"
 builddir="$srcdir/a72q-firmware-$_commit"
 
@@ -79,6 +80,15 @@ wlan() {
 		"$subpkgdir/lib/firmware/qcom/sm7125/a72q/"
 }
 
+bluetooth() {
+	pkgdesc="Samsung Galaxy A72 bluetooth firmware"
+
+	install -Dm644 "$builddir"/crbtfw21.tlv -t \
+		"$subpkgdir/lib/firmware/qca/"
+	install -Dm644 "$builddir"/crnv21.* -t \
+		"$subpkgdir/lib/firmware/qca/sm7125/a72q/"
+}
+
 sha512sums="
-2dacfd697542e5f305127d5fc2ca20a4d6c0b94dae3e59ddf1863ca997a8b0cc59c46d39f768b85be9747fde2941c2a2cebf14688363afd8d30eac8d6af4eb7d  a72q-firmware-e9987c2ef670715ca5144fe20e413e0f1a67c6fb.tar.gz
+3974ab2d7996dafc8ee8330a15afce9b8f9d769ec6fa5db778e62f12d09a9a2df91d261ff4849ae6ce69a3e80885c50aa02f28da2f9b19bd7f328276fcb015b4  a72q-firmware-e4d3baff25a33ccd66d30303ad7545cd35710e81.tar.gz
 "

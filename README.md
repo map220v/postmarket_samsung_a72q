@@ -6,6 +6,7 @@ PostmarketOS for Samsung Galaxy A72
 - Screen (simple-framebuffer)
 - Hexagon 692 DSP (mpss)
 - Wifi
+- Bluetooth
 - CPU (tlmm, clock controllers)
 - UFS Storage
 - SDHC (SDCard)

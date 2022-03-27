@@ -37,6 +37,7 @@ nonfree_firmware() {
 		firmware-samsung-a72q-ipa
 		firmware-samsung-a72q-modem
 		firmware-samsung-a72q-wlan
+		firmware-samsung-a72q-bluetooth
 		linux-firmware-ath10k
 		msm-modem
 		msm-modem-uim-selection
