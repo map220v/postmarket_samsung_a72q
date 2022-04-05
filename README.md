@@ -11,6 +11,7 @@ PostmarketOS for Samsung Galaxy A72
 - UFS Storage
 - SDHC (SDCard)
 - IOMMU
+- Battery (sm5714-fg)
 - Some other things from sc7180.dtsi
 ## Broken
 - GPU (Error: "A618: timeout waiting to drain ringbuffer 0 rptr/wptr = 0/C")
