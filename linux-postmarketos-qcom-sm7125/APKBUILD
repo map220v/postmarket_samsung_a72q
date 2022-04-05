@@ -15,7 +15,7 @@ makedepends="bison findutils flex installkernel openssl-dev perl"
 
 _repo="sm7125-mainline"
 _config="config-$_flavor.$arch"
-_commit="f2c09e2d676e69f566a8a89394748ff85da1decd"
+_commit="4e38d8e98d0d67f132eede09db904c074090875e"
 
 # Source
 source="
@@ -54,6 +54,6 @@ package() {
 }
 
 sha512sums="
-29c066f68eeb4d9775c88cf5e811ade1472b15b6994147287ff3a653798b5a62b7228940fd282d2d94c8451f015e4ca6814901544bc3dfce7c60676c3907e8c3  sm7125-mainline-f2c09e2d676e69f566a8a89394748ff85da1decd.tar.gz
+fcf3286b09f6ca08732b6bc48d8028162f38fd62b2e8974ff1fa27214c405accfe181d55180bddea41b799360e5ec7edfdc930516464439bcf786a191db1070e  sm7125-mainline-4e38d8e98d0d67f132eede09db904c074090875e.tar.gz
 a8efa4da88b75849ca68fe2f4234c067a843f6c73dc93f9c8fe3d89cea7fb874bce6f1ac2b5c1a30baaf8908fb4c88df2801ed5a5f0e39356cf80ee3307e64d5  config-postmarketos-qcom-sm7125.aarch64
 "
