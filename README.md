@@ -12,10 +12,10 @@ PostmarketOS for Samsung Galaxy A72
 - SDHC (SDCard)
 - IOMMU
 - Battery (sm5714-fg)
+- Touchscreen
 - Some other things from sc7180.dtsi
 ## Broken
 - GPU (Error: "A618: timeout waiting to drain ringbuffer 0 rptr/wptr = 0/C")
-- Touchscreen (Error: "i2c txn timed out", "timeout abort_m_cmd")
 - Panel/DPU (Errors: 
 ```
 [drm:dpu_encoder_helper_register_irq:350] [dpu error]enc31 intf1 pp0 invalid IRQ index:-1
