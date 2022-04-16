@@ -3,8 +3,8 @@ PostmarketOS for Samsung Galaxy A72
 
 ## Works
 - USB Gadget mode
-- Screen (simple-framebuffer)
-- Hexagon 692 DSP (mpss)
+- Display (samsung,s6e3fc3-ams667ym01)
+- Modem (works only with modemmanager. ofone doesn't seem to work)
 - Wifi
 - Bluetooth
 - CPU (tlmm, clock controllers)
@@ -16,17 +16,8 @@ PostmarketOS for Samsung Galaxy A72
 - Some other things from sc7180.dtsi
 ## Broken
 - GPU (Error: "A618: timeout waiting to drain ringbuffer 0 rptr/wptr = 0/C")
-- Panel/DPU (Errors: 
-```
-[drm:dpu_encoder_helper_register_irq:350] [dpu error]enc31 intf1 pp0 invalid IRQ index:-1
-[drm:dpu_encoder_phys_cmd_control_vblank_irq [msm]] id:31 pp:0 enable=true/0
-[drm:dpu_encoder_helper_register_irq:350] [dpu error]enc31 intf1 pp0 invalid IRQ index:-1
-[drm:dpu_encoder_phys_cmd_control_vblank_irq [msm]] *ERROR* vblank irq err id:31 pp:0 ret:-22, enable true/0
-...
-[drm:dpu_encoder_frame_done_timeout:2088] [dpu error]enc31 frame done timeout
-[drm:dpu_encoder_frame_done_timeout:2088] [dpu error]enc31 frame done timeout
-[drm:dpu_encoder_frame_done_timeout:2088] [dpu error]enc31 frame done timeout
-[drm:dpu_encoder_frame_done_timeout:2088] [dpu error]enc31 frame done timeout
-[drm:dpu_encoder_frame_done_timeout:2088] [dpu error]enc31 frame done timeout
-...
-```
+- Display Brightness
+- Display Sleeep (after sleep display won't start. Workaround: reboot phone
+Error: "*ERROR* encoder is disabled id=31, intr=3, irq=41")
+## Bugs
+- Modem sometimes can't start at boot.

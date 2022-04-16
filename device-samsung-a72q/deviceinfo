@@ -9,7 +9,7 @@ deviceinfo_codename="samsung-a72q"
 deviceinfo_year="2021"
 deviceinfo_dtb="qcom/sm7125-samsung-a72q"
 deviceinfo_append_dtb="true"
-deviceinfo_modules_initfs="msm ufs_qcom"
+deviceinfo_modules_initfs="msm panel-samsung-s6e3fc3-ams667ym01 ufs_qcom"
 deviceinfo_arch="aarch64"
 
 # Device related

@@ -1,8 +1,8 @@
 # Reference: <https://postmarketos.org/devicepkg>
 pkgname=device-samsung-a72q
 pkgdesc="Samsung Galaxy A72"
-pkgver=0.1
-pkgrel=0
+pkgver=1.0
+pkgrel=1
 url="https://postmarketos.org"
 license="MIT"
 arch="aarch64"
@@ -14,10 +14,14 @@ depends="
 	postmarketos-base
 "
 makedepends="devicepkg-dev"
-source="deviceinfo"
+source="
+	deviceinfo
+	30-gpu-firmware.files
+"
 
 subpackages="
 	$pkgname-nonfree-firmware:nonfree_firmware
+	$pkgname-mainline-firmware:mainline_firmware
 "
 
 build() {
@@ -26,6 +30,16 @@ build() {
 
 package() {
 	devicepkg_package $startdir $pkgname
+}
+
+mainline_firmware() {
+	pkgdesc="Firmware support packages for mainline kernel"
+	depends="firmware-samsung-a72q-adreno"
+	install_if="linux-postmarketos-qcom-sm7125 $pkgname-nonfree-firmware"
+	mkdir "$subpkgdir"
+
+	install -Dm644 "$srcdir/30-gpu-firmware.files" \
+		"$subpkgdir/etc/postmarketos-mkinitfs/files/30-gpu-firmware.files"
 }
 
 nonfree_firmware() {
@@ -49,5 +63,6 @@ nonfree_firmware() {
 }
 
 sha512sums="
-25ba60488ea34e667184a8097cac722c84640343d5d093a13c0b7799be91d733c7f30bedea5d7cb84f1bbb263d8552d191b770df1495f39fe3f319a58c663568  deviceinfo
+e0325ac0f1483e54489be83f2be35d6c8b2bd36a538db2901d78a9cabccf25f9bceb91275353483c246c2de0a9be3bbea8fd27686bdfb7f307d0cca70eba42c3  deviceinfo
+be741a8409a038279fc0083a39dc8f8a51e9c6ca91b46cfb10413231b786fab46fa4db5783adeceebcc955be0bb7139f4f8bf875b97e54ad08dba0a666524e8c  30-gpu-firmware.files
 "
