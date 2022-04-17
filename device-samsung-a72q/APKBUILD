@@ -1,8 +1,8 @@
 # Reference: <https://postmarketos.org/devicepkg>
 pkgname=device-samsung-a72q
 pkgdesc="Samsung Galaxy A72"
-pkgver=1.0
-pkgrel=1
+pkgver=1.1
+pkgrel=2
 url="https://postmarketos.org"
 license="MIT"
 arch="aarch64"
@@ -63,6 +63,6 @@ nonfree_firmware() {
 }
 
 sha512sums="
-e0325ac0f1483e54489be83f2be35d6c8b2bd36a538db2901d78a9cabccf25f9bceb91275353483c246c2de0a9be3bbea8fd27686bdfb7f307d0cca70eba42c3  deviceinfo
-be741a8409a038279fc0083a39dc8f8a51e9c6ca91b46cfb10413231b786fab46fa4db5783adeceebcc955be0bb7139f4f8bf875b97e54ad08dba0a666524e8c  30-gpu-firmware.files
+8a2d17df55a4be8e3539a98c2380137ac5a27398a7da9c710e99cb14dd7deecfd193f9c8aec05ace7e5be305d168cbcd373e2a097f73f786765900fdfe2eac60  deviceinfo
+2d05313b813a5434901ec3920d2b0c8040621676cb2c041ca4de2e67913cb3ea642b66363c80f9d1fc7b2bdd7d770f897433c75ad32f392c0917a7cbcde7e850  30-gpu-firmware.files
 "

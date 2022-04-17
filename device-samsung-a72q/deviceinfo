@@ -11,6 +11,7 @@ deviceinfo_dtb="qcom/sm7125-samsung-a72q"
 deviceinfo_append_dtb="true"
 deviceinfo_modules_initfs="msm panel-samsung-s6e3fc3-ams667ym01 ufs_qcom"
 deviceinfo_arch="aarch64"
+deviceinfo_gpu_accelerated="true"
 
 # Device related
 deviceinfo_chassis="handset"

@@ -1,6 +1,6 @@
 pkgname=firmware-samsung-a72q
 pkgver=20211222
-pkgrel=0
+pkgrel=1
 pkgdesc="Firmware for Samsung Galaxy A72"
 subpackages="
 	$pkgname-adreno
@@ -16,7 +16,7 @@ url="https://github.com/map220v/a72q-firmware"
 arch="aarch64"
 license="proprietary"
 options="!check !strip !archcheck !tracedeps pmb:cross-native"
-_commit="e4d3baff25a33ccd66d30303ad7545cd35710e81"
+_commit="482d4a04179f87ecb304b8c70c57b54bcd44cba7"
 source="https://github.com/map220v/a72q-firmware/archive/$_commit/a72q-firmware-$_commit.tar.gz"
 builddir="$srcdir/a72q-firmware-$_commit"
 
@@ -90,5 +90,5 @@ bluetooth() {
 }
 
 sha512sums="
-3974ab2d7996dafc8ee8330a15afce9b8f9d769ec6fa5db778e62f12d09a9a2df91d261ff4849ae6ce69a3e80885c50aa02f28da2f9b19bd7f328276fcb015b4  a72q-firmware-e4d3baff25a33ccd66d30303ad7545cd35710e81.tar.gz
+d102880deab25f60fc10f32cc2aee4125508268184a64568943cfe2458ced37f2d3b0361e735a4bde6efdb6cf98a726d23d4e7ac7e9b5ceec2eb8d861c16b7c7  a72q-firmware-482d4a04179f87ecb304b8c70c57b54bcd44cba7.tar.gz
 "
