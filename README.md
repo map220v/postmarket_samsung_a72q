@@ -17,7 +17,5 @@ PostmarketOS for Samsung Galaxy A72
 ## Broken
 - GPU (Error: "A618: timeout waiting to drain ringbuffer 0 rptr/wptr = 0/C")
 - Display Brightness
-- Display Sleeep (after sleep display won't start. Workaround: reboot phone
-Error: "*ERROR* encoder is disabled id=31, intr=3, irq=41")
 ## Bugs
 - Modem sometimes can't start at boot.
