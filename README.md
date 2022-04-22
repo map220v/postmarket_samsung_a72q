@@ -13,6 +13,7 @@ PostmarketOS for Samsung Galaxy A72
 - SDHC (SDCard)
 - IOMMU
 - Battery (sm5714-fg)
+- Charger (sm5714-charger)
 - Touchscreen
 - Some other things from sc7180.dtsi
 ## Broken
