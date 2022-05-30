@@ -14,9 +14,10 @@ PostmarketOS for Samsung Galaxy A72
 - IOMMU
 - Battery (sm5714-fg)
 - Charger (sm5714-charger)
-- Touchscreen
+- Touchscreen (stmfts_fts5cu56a)
 - Some other things from sc7180.dtsi
 ## Broken
-- Display Brightness
+- Accelerometer & Gyroscope (lsm6dso)
 ## Bugs
+- Display Brightness(Changing brightness causes artifacts)
 - Modem sometimes can't start at boot.
