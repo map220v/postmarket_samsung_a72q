@@ -1,8 +1,8 @@
 # Reference: <https://postmarketos.org/devicepkg>
 pkgname=device-samsung-a72q
 pkgdesc="Samsung Galaxy A72"
-pkgver=1.2
-pkgrel=3
+pkgver=2.0
+pkgrel=4
 url="https://postmarketos.org"
 license="MIT"
 arch="aarch64"
@@ -17,11 +17,14 @@ makedepends="devicepkg-dev"
 source="
 	deviceinfo
 	30-gpu-firmware.files
+	GalaxyA72.conf
+	HiFi.conf
 "
 
 subpackages="
 	$pkgname-nonfree-firmware:nonfree_firmware
 	$pkgname-mainline-firmware:mainline_firmware
+	$pkgname-alsa:alsa
 "
 
 build() {
@@ -43,7 +46,7 @@ mainline_firmware() {
 }
 
 nonfree_firmware() {
-	pkgdesc="Firmware for Modem, WiFi, etc."
+	pkgdesc="Firmware for GPU, Audio, Modem, WiFi, etc."
 	depends="
 		firmware-samsung-a72q-adreno
 		firmware-samsung-a72q-adsp
@@ -62,7 +65,19 @@ nonfree_firmware() {
 	mkdir "$subpkgdir"
 }
 
+alsa() {
+	pkgdesc="Audio configuration files"
+	depends="alsa-ucm-conf"
+	install_if="linux-postmarketos-qcom-sm7125 $pkgname-nonfree-firmware"
+	mkdir "$subpkgdir"
+	
+	install -Dm644 "$srcdir/GalaxyA72.conf" "$subpkgdir/usr/share/alsa/ucm2/conf.d/sm8250/Galaxy A72.conf"
+	install -Dm644 "$srcdir/HiFi.conf" "$subpkgdir/usr/share/alsa/ucm2/Samsung/a72q/HiFi.conf"
+}
+
 sha512sums="
 c3a5ae0183402b99dd8317429085526db9de3189d986185f6b9df2a9732b3a8a86c3f1a391c5688b584988cc6e8c9c5a1ac5a3981bc4c7953feaf98e91e96a7b  deviceinfo
 2d05313b813a5434901ec3920d2b0c8040621676cb2c041ca4de2e67913cb3ea642b66363c80f9d1fc7b2bdd7d770f897433c75ad32f392c0917a7cbcde7e850  30-gpu-firmware.files
+98ebd0a980059b0571ddff3cb6bf61211f1c3969dc77c6623c0e46519affa7bace67904ebafb96b8e13d178659228461c355f19ad04aa0c588665f6883596c68  GalaxyA72.conf
+1cc56056899d85da276028b4a114a5360db392c5bfabe0a47ba927411a8a1466ff8cb36bfe52356db0ce297f741f49cd0bb49b6c6d46583a21f155f36bccf344  HiFi.conf
 "

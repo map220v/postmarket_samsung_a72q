@@ -1,7 +1,7 @@
 _flavor="postmarketos-qcom-sm7125"
 pkgname=linux-$_flavor
 pkgver=5.18.0
-pkgrel=6
+pkgrel=7
 pkgdesc="Mainline Kernel fork for SM7125 devices"
 arch="aarch64"
 _carch="arm64"
@@ -15,7 +15,7 @@ makedepends="bison findutils flex installkernel openssl-dev perl"
 
 _repo="sm7125-mainline"
 _config="config-$_flavor.$arch"
-_commit="901832c771959741e38642c0961c0806e91be7e0"
+_commit="68d81a85ac7ade5e7a10150b56eb1d519f02c2bd"
 
 # Source
 source="
@@ -54,6 +54,6 @@ package() {
 }
 
 sha512sums="
-dc1edb35fbbfecb3686fce4aabf56f30a84defb0a1340ed5a8e1f2f1138e8a0e680a52af2ba231d70898ce4ecda3ced74263fd1d992cce8def6256af3b7d0fd0  sm7125-mainline-901832c771959741e38642c0961c0806e91be7e0.tar.gz
-be48cccd7adad2feeb9e364fc4da00ba165e12e89d0db8f6a549ce815fbec547ad7f67baee0887d112092eabcbe3258d136edc9f0cf7ae7ce736ca30cf916d5f  config-postmarketos-qcom-sm7125.aarch64
+d6be79937bf405c515dbedb88304cb04a7338005f79cdcd8711e27dc3515c0a09014645ad7e7b1206075240827551881aa971017cef37fae6ab106949a730745  sm7125-mainline-68d81a85ac7ade5e7a10150b56eb1d519f02c2bd.tar.gz
+bd6972eb31623bca61fbaf7c289c5d5bce07ff3550d44d92d3cc850474f448e734c335afde251a5ec7ad6837ba0a65f13c0d382dea96a99f507e45b77f3be0c7  config-postmarketos-qcom-sm7125.aarch64
 "

@@ -5,6 +5,7 @@ PostmarketOS for Samsung Galaxy A72
 - USB Gadget mode
 - Display (samsung,s6e3fc3-ams667ym01)
 - GPU (FD618)
+- Audio (only built in stereo speakers)
 - Modem (works only with modemmanager. ofone doesn't seem to work)
 - Wifi
 - Bluetooth
