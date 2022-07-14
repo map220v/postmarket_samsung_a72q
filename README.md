@@ -16,6 +16,7 @@ PostmarketOS for Samsung Galaxy A72
 - Battery (sm5714-fg)
 - Charger (sm5714-charger)
 - Touchscreen (stmfts_fts5cu56a)
+- Venus (hardware video decoding/encoding)
 - Some other things from sc7180.dtsi
 ## Broken
 - Accelerometer & Gyroscope (lsm6dso)

@@ -1,8 +1,8 @@
 # Reference: <https://postmarketos.org/devicepkg>
 pkgname=device-samsung-a72q
 pkgdesc="Samsung Galaxy A72"
-pkgver=2.0
-pkgrel=4
+pkgver=2.1
+pkgrel=0
 url="https://postmarketos.org"
 license="MIT"
 arch="aarch64"
@@ -55,6 +55,7 @@ nonfree_firmware() {
 		firmware-samsung-a72q-modem
 		firmware-samsung-a72q-wlan
 		firmware-samsung-a72q-bluetooth
+		firmware-samsung-a72q-venus
 		linux-firmware-ath10k
 		msm-modem
 		msm-modem-uim-selection
