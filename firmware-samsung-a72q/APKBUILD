@@ -1,6 +1,6 @@
 pkgname=firmware-samsung-a72q
 pkgver=20211222
-pkgrel=1
+pkgrel=2
 pkgdesc="Firmware for Samsung Galaxy A72"
 subpackages="
 	$pkgname-adreno
@@ -16,7 +16,7 @@ url="https://github.com/map220v/a72q-firmware"
 arch="aarch64"
 license="proprietary"
 options="!check !strip !archcheck !tracedeps pmb:cross-native"
-_commit="482d4a04179f87ecb304b8c70c57b54bcd44cba7"
+_commit="d279fb298ad9c9e7f23c23c8d88344d3724c5be9"
 source="https://github.com/map220v/a72q-firmware/archive/$_commit/a72q-firmware-$_commit.tar.gz"
 builddir="$srcdir/a72q-firmware-$_commit"
 
@@ -74,6 +74,8 @@ venus() {
 wlan() {
 	pkgdesc="Samsung Galaxy A72 wlan firmware"
 
+	install -Dm644 "$builddir"/firmware-5.bin -t \
+		"$subpkgdir/lib/firmware/ath10k/WCN3990/hw1.0/"
 	install -Dm644 "$builddir"/board-2.bin -t \
 		"$subpkgdir/lib/firmware/ath10k/WCN3990/hw1.0/"
 	install -Dm644 "$builddir"/wlanmdsp.mbn -t \
@@ -90,5 +92,5 @@ bluetooth() {
 }
 
 sha512sums="
-d102880deab25f60fc10f32cc2aee4125508268184a64568943cfe2458ced37f2d3b0361e735a4bde6efdb6cf98a726d23d4e7ac7e9b5ceec2eb8d861c16b7c7  a72q-firmware-482d4a04179f87ecb304b8c70c57b54bcd44cba7.tar.gz
+1ccbbfb73bf949fe202d3333a59e39f2027ac5f67e536a8c28fa1154425b72a0a6a41eededa9af9b82292beefe4843e4e449fe84d87c31d5f2d6513004f04e18  a72q-firmware-d279fb298ad9c9e7f23c23c8d88344d3724c5be9.tar.gz
 "
